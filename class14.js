@@ -158,7 +158,7 @@ makeChai() //returns a promise
  console.log(err);
  })
  .finally(function(){
-  console.log("Chai attempt done");
+  console.log("Morning routine complete");
  })
 
 function toastBread(){
@@ -176,5 +176,6 @@ function toastBread(){
   },1500)
   })
 }
+
 
 
