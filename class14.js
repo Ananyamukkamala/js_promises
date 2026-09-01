@@ -127,6 +127,68 @@
 // .catch(handleError)
 
 //Serial Async operations
+//  function makeChai(){
+//   return new Promise(function(resolve,reject){
+//    console.log("Starting to make chai");//sync piece of code
+
+//    //async operation
+//   setTimeout(function(){
+//   let isShopOpen = Math.random() > 0.3; //70 percent chance of being successful
+//   if(isShopOpen){
+//     resolve("Chai is ready");
+//   }
+//   else{
+//     reject("Gas ran out-can't make chai");
+//   }
+//   },2000)
+
+// }) 
+// }
+
+// function toastBread(){
+//   return new Promise(function(resolve,reject){
+//     console.log("Toasting Bread");//sync piece of code
+//    //async operation
+//   setTimeout(function(){
+//   let isBreadAvailable = Math.random() > 0.2; //80 percent chance of being successful
+//   if(isBreadAvailable ){
+//     resolve("Bread Toasted");  
+//   }
+//   else{
+//     reject("No Bread left");
+//   }
+//   },1500)
+//   })
+// }
+// function serveBreakFast(){
+//   return new Promise(function(resolve,reject){
+//    setTimeout(function(){
+//     resolve("Breakfast served with love!");
+//    },1000)     
+//   })
+// }
+
+// makeChai() //returns a promise
+// .then(function(msg){
+//  console.log(msg);
+//  return toastBread() // Returns a new Promise
+//  })
+// .then(function(message){
+//   console.log(message);
+//   console.log("Breakfast served - chai and toast");
+//   return serveBreakFast();
+//  })
+// .then(function(msg){
+//   console.log(msg);
+//  })
+// .catch(function(err){
+//  console.log(err);
+//  })
+// .finally(function(){
+//   console.log("Morning routine complete");
+//  })
+
+//No Return Keyword 
  function makeChai(){
   return new Promise(function(resolve,reject){
    console.log("Starting to make chai");//sync piece of code
@@ -143,23 +205,7 @@
   },2000)
 
 }) 
-
 }
-makeChai() //returns a promise
-.then(function(msg){
- console.log(msg);
- return toastBread() // Returns a new Promise
- })
- .then(function(message){
-  console.log(message);
-  console.log("Breakfast served - chai and toast");
- })
-.catch(function(err){
- console.log(err);
- })
- .finally(function(){
-  console.log("Morning routine complete");
- })
 
 function toastBread(){
   return new Promise(function(resolve,reject){
@@ -176,6 +222,30 @@ function toastBread(){
   },1500)
   })
 }
+function serveBreakFast(){
+  return new Promise(function(resolve,reject){
+   setTimeout(function(){
+    resolve("Breakfast served with love!");
+   },1000)     
+  })
+}
 
-
-
+makeChai() //returns a promise
+.then(function(msg){
+ console.log(msg);
+ toastBread() 
+ })
+.then(function(message){
+  console.log(message);// no Promise object received - expected output- undefined
+  console.log("Breakfast served - chai and toast");
+  serveBreakFast();
+ })
+.then(function(msg){
+  console.log(msg);//Expected output- undefined
+ })
+.catch(function(err){
+ console.log(err);
+ })
+.finally(function(){
+  console.log("Morning routine complete");
+ })
