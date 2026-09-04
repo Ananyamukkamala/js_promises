@@ -28,4 +28,69 @@
 // printNumber();
 
 // asynchronous operation
+// function getNumber(){
+//     return new Promise(function(resolve){
+//         setTimeout(function(){
+//         resolve(30);
+//         },1000)
+//     })
+// }
+// // getNumber().then(function(d){
+// // console.log(d);
+// // })
+// async function PrintResult(){
+// let result = await getNumber();
+// console.log(result);
+// }
+// PrintResult();
 
+//Checking if Async returns a nested Promise
+// async function getNumber(){
+//     return new Promise(function(resolve){
+//         setTimeout(function(){
+//             resolve(50)
+//         },1000)
+//     })
+// }
+// async function printResult(){
+//     let result = await getNumber();
+//     console.log(result);
+// }
+// printResult();
+
+//Promise Chaining 
+// function makeTea(){
+//     return new Promise(function(resolve,reject){
+//         let result = Math.random() > 0.3
+//         if(result){
+//             resolve("Tea is ready");
+//         }
+//         else{
+//             reject("Ran out of milk");
+//         }
+//     })
+// }
+//  function makeToast(){
+//     return new Promise(function(resolve,reject){
+//         let result = Math.random() >0.7
+//         if(result){
+//             resolve("Toast is ready");
+//         }
+//         else{
+//             reject("Ran out of Bread")
+//         }
+//     })
+//  }
+
+//  makeTea()
+//  .then(function(data){
+//     console.log(data)
+//     return makeToast();
+//  })
+//  .then(msg=>{
+//     console.log(msg)
+//     console.log("Breakfast ready")
+//  })
+//  .catch(err=>{
+//     console.log(err);
+//  })
