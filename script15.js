@@ -94,3 +94,26 @@
 //  .catch(err=>{
 //     console.log(err);
 //  })
+
+//The Coffee Shop Problem using promises
+function placeOrder(drink) {
+  return new Promise((resolve, reject) => {
+    if (drink === 'coffee') {
+      resolve('Order for coffee placed.');
+    } else {
+      reject('Sorry, we only serve coffee!');
+    }
+  });
+}
+
+async function serveOrder(data){
+   try{
+   const order = await placeOrder(data)
+   console.log(order);
+   } 
+   catch(error){
+   console.log(error);
+   }
+}
+serveOrder('tea')
+serveOrder('coffee')
