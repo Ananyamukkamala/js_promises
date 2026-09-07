@@ -96,24 +96,73 @@
 //  })
 
 //The Coffee Shop Problem using promises
-function placeOrder(drink) {
-  return new Promise((resolve, reject) => {
-    if (drink === 'coffee') {
-      resolve('Order for coffee placed.');
-    } else {
-      reject('Sorry, we only serve coffee!');
-    }
-  });
-}
+// function placeOrder(drink) {
+//   return new Promise((resolve, reject) => {
+//     if (drink === 'coffee') {
+//       resolve('Order for coffee placed.');
+//     } else {
+//       reject('Sorry, we only serve coffee!');
+//     }
+//   });
+// }
 
-async function serveOrder(data){
-   try{
-   const order = await placeOrder(data)
-   console.log(order);
-   } 
-   catch(error){
-   console.log(error);
-   }
+// async function serveOrder(data){
+//    try{
+//    const order = await placeOrder(data)
+//    console.log(order);
+//    } 
+//    catch(error){
+//    console.log(error);
+//    }
+// }
+// serveOrder('tea')
+// serveOrder('coffee')
+
+// const p1 = new Promise(resolve => {
+//     setTimeout(() => resolve("A"), 2000);
+// });//P1 contains a promise
+
+// async function test() {
+//     console.log("1");   //1
+
+//     const a = await p1;   //3
+
+//     console.log(a);     //A
+
+//     console.log("2"); //2
+// }
+
+// test();
+
+// console.log("3");
+
+//Example 1
+// async function fetchData(){
+//   return "data";
+// }
+// console.log(fetchData()); //logs Promise('data)
+
+// fetchData().then(function(msg){
+//   console.log(msg); //logs data
+// })
+// fetchData().then(msg=>console.log(msg))
+//Example 2
+const p = new Promise(
+  resolve=>{
+    setTimeout(()=>resolve("Inner Promise Resolved"),2000)
+  })
+// async function fetchData2(){
+//   return p;
+// }
+// fetchData2().then(res=>console.log(res));
+//Example 3
+async function handlePromise(){
+  console.log("before await");
+  const value = await p;
+  console.log(value);
+  console.log("After await")
+  
 }
-serveOrder('tea')
-serveOrder('coffee')
+handlePromise()
+
+ 
