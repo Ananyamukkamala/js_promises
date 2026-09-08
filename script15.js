@@ -163,6 +163,9 @@ async function handlePromise(){
   console.log("After await")
   
 }
-handlePromise()
+handlePromise();
+console.log("Outer Async function")
+
+
 
  
