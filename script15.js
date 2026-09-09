@@ -255,20 +255,39 @@
 // serveOrder("tea")
 
 //Promise.all
-function fetchUser(){
-  return new Promise(resolve=>{setTimeout(()=>resolve("user data"),2000)});
+// function fetchUser(){
+//   return new Promise(resolve=>{setTimeout(()=>resolve("user data"),2000)});
 
-}
-function fetchAnalytics(){
-  return new Promise((resolve,reject)=>{setTimeout(()=>resolve("Promise rejected"),2000)})
-}
-function fetchActivity(){
-  return new Promise(resolve=>{setTimeout(()=>resolve("user data"),1500)})
-}
+// }
+// function fetchAnalytics(){
+//   return new Promise((resolve,reject)=>{setTimeout(()=>resolve("Promise rejected"),2000)})
+// }
+// function fetchActivity(){
+//   return new Promise(resolve=>{setTimeout(()=>resolve("user data"),1500)})
+// }
 
-let result = Promise.all([fetchUser(),fetchAnalytics(),fetchActivity()]);
-result.then(msg=>console.log(msg)).catch(err=>console.log(err))
+// let result = Promise.all([fetchUser(),fetchAnalytics(),fetchActivity()]);
+// result.then(msg=>console.log(msg)).catch(err=>console.log(err))
 
+ function divide(a, b) {
+            //write your code here ===============================================
+            try{
+            if(b===0){
+             throw new Error("Division by zero is not allowed.");
+            }
+            else{
+            const result = a/b;
+            console.log(result);
 
+            }
+            }
+            catch(err){
+              console.log(err);
+
+            }
+        }
+
+divide(9,0)
+divide(120,4)
 
 
