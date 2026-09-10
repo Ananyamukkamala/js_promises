@@ -72,36 +72,78 @@
 // Country
 // Handle API errors and provide appropriate feedback if the fetch fails.
  
-async function fetchRandomUser() {
-  // Write code here...
-let response = await fetch("https://randomuser.me/api/")
-let data = await response.json()
-// console.log(data)
-let disp = Object.values(data)[0]
-// console.log(disp)
-// console.log(disp)
-let user = disp[0]
-// console.log("Name: " + user.name.title+" "+user.name.first+" "+user.name.last)
-// console.log("Email: "+ user.email)
-// console.log("Country: "+user.location.country)
-pname.innerHTML = user.name.title+" "+user.name.first+" "+user.name.last
-pemail.innerHTML = user.email
-pcountry.innerHTML = user.location.country
-let body = document.querySelector("body")
-body.appendChild(pname)
-body.appendChild(pemail)
-body.appendChild(pcountry)
+// async function fetchRandomUser() {
+//   // Write code here...
+// try{
+// let response = await fetch("https://randomuser.me/api/")
+// let data = await response.json()
+// // console.log(data)
+// let disp = Object.values(data)[0]
+// // console.log(disp)
+// // console.log(disp)
+// let user = disp[0]
+// // console.log("Name: " + user.name.title+" "+user.name.first+" "+user.name.last)
+// // console.log("Email: "+ user.email)
+// // console.log("Country: "+user.location.country)
+// pname.innerHTML = user.name.title+" "+user.name.first+" "+user.name.last
+// pemail.innerHTML = user.email
+// pcountry.innerHTML = user.location.country
+// document.getElementById("userCard").style.display ="Block"
+// }
+// catch(err){
+// console.error(err)
+// }
 
-}
- //Select the element in the DOM
- //Add the event listener
- let Ebutton = document.querySelector("#fetchUserBtn")
- let pname = document.querySelector("#userName")
- let pemail = document.querySelector("#userEmail")
- let pcountry = document.querySelector("#userCountry")
+// }
+//  //Select the element in the DOM
+//  //Add the event listener
+//  let Ebutton = document.querySelector("#fetchUserBtn")
+//  let pname = document.querySelector("#userName")
+//  let pemail = document.querySelector("#userEmail")
+//  let pcountry = document.querySelector("#userCountry")
 
- Ebutton.addEventListener('click', fetchRandomUser)
+//  Ebutton.addEventListener('click', fetchRandomUser)
 
+//Q5 Use these URls to fetch the images of dogs using Promise.all
+// "https://dog.ceo/api/breeds/image/random"
+// "https://dog.ceo/api/breeds/image/random"
+// "https://dog.ceo/api/breeds/image/random"
+ async function fetchDogs(){
+    try{
+      const url = ["https://dog.ceo/api/breeds/image/random",
+                 "https://dog.ceo/api/breeds/image/random",
+                "https://dog.ceo/api/breeds/image/random"]
+    
+    let response = await Promise.all(url.map(url=>fetch(url)))
+    //e = url.map(url=>fetch(url))- applies to fetch to all the urls and 
+    //response is  an array of promises hence passed it into Promise.all and then Promise.all returns a promise representing the status of all the Promises 
+    //adding await will resolve my promise
+    //response should contain the JSON objects 
+    // console.log(response)
+    let data = await Promise.all(response.map(res => res.json()))
+    console.log(data)
+    //data is now an array of objects
+    let body = document.querySelector("body")
+    // for(let i of data){
+    // let imgs = document.createElement('img')
+    // imgs.src=data[0]
+    // }
+    for(let i=0;i<data.length;i++){
+       let imgs = document.createElement('img')
+       imgs.src= data[i].message
+       body.appendChild(imgs) 
+    }
+    
+
+    }
+    catch(err){
+        console.log(err);
+    }
+ }
+
+ //usage
+ fetchDogs()
+    
 
 
 
