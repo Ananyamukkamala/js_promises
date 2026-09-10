@@ -55,11 +55,56 @@
 // fetchCatFact();
 
 //Q3. Another approach- Fetch a random cat fact from "https://catfact.ninja/fact" and log it.
-function fetchCatFact() {
+// function fetchCatFact() {
+//   // Write code here...
+// fetch("https://catfact.ninja/fact").then(response=>response.json()).then(data=>{console.log(data.fact)}).catch(err=>console.log(err))
+// }
+//  // Usage:
+// fetchCatFact();
+
+
+// Q4 Fetch and Display User Data (async/await & Error Handling)
+// Create a random user generator using the "https://randomuser.me/api/" API.
+// When a user clicks the "Get Random User" button, fetch user details and display them on the page, including:
+
+// Full Name
+// Email
+// Country
+// Handle API errors and provide appropriate feedback if the fetch fails.
+ 
+async function fetchRandomUser() {
   // Write code here...
-fetch("https://catfact.ninja/fact").then(response=>response.json()).then(data=>{console.log(data.fact)}).catch(err=>console.log(err))
+let response = await fetch("https://randomuser.me/api/")
+let data = await response.json()
+// console.log(data)
+let disp = Object.values(data)[0]
+// console.log(disp)
+// console.log(disp)
+let user = disp[0]
+// console.log("Name: " + user.name.title+" "+user.name.first+" "+user.name.last)
+// console.log("Email: "+ user.email)
+// console.log("Country: "+user.location.country)
+pname.innerHTML = user.name.title+" "+user.name.first+" "+user.name.last
+pemail.innerHTML = user.email
+pcountry.innerHTML = user.location.country
+let body = document.querySelector("body")
+body.appendChild(pname)
+body.appendChild(pemail)
+body.appendChild(pcountry)
+
 }
- // Usage:
-fetchCatFact();
+ //Select the element in the DOM
+ //Add the event listener
+ let Ebutton = document.querySelector("#fetchUserBtn")
+ let pname = document.querySelector("#userName")
+ let pemail = document.querySelector("#userEmail")
+ let pcountry = document.querySelector("#userCountry")
+
+ Ebutton.addEventListener('click', fetchRandomUser)
+
+
+
+
+
 
 
