@@ -27,32 +27,39 @@
  
 //Q3.  Fetch a random cat fact from "https://catfact.ninja/fact" and log it.
 
+// function fetchCatFact() {
+//   // Write code here...
+// let data = new Promise(function(resolve,reject){
+// let v1 = fetch("https://catfact.ninja/fact") //fetch returns a promise
+// //Here .then and .catch were used to check if the data was fetched succesfully or not 
+// v1
+// .then(function(response){resolve(response)})
+// .catch(function(){reject("fetch failed from API")})
+
+// })
+
+// data
+// .then(function(response){
+//     let v2 = response.json();
+//     return v2
+// })
+// .then(function(v2){
+//     console.log(Object.values(v2)[0])
+// })
+// .catch(function (err){
+//     console.log(err)
+// })
+
+// }
+//  // Usage:
+// fetchCatFact();
+
+//Q3. Another approach- Fetch a random cat fact from "https://catfact.ninja/fact" and log it.
 function fetchCatFact() {
   // Write code here...
-let data = new Promise(function(resolve,reject){
-let v1 = fetch("https://catfact.ninja/fact") //fetch returns a promise
-//Here .then and .catch were used to check if the data was fetched succesfully or not 
-v1
-.then(function(response){resolve(response)})
-.catch(function(){reject("fetch failed from API")})
-
-})
-
-data
-.then(function(response){
-    let v2 = response.json();
-    return v2
-})
-.then(function(v2){
-    console.log(Object.values(v2)[0])
-})
-.catch(function (err){
-    console.log(err)
-})
-
+fetch("https://catfact.ninja/fact").then(response=>response.json()).then(data=>{console.log(data.fact)}).catch(err=>console.log(err))
 }
  // Usage:
 fetchCatFact();
-
 
 
