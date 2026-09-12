@@ -66,15 +66,25 @@
 // const p1 = new id1("Rithik");
 // const p2 = new id1("Sanjay");
 
-const ob1 ={ name:"Rithik",
-    greet(){
-        console.log("Hello from",this.name)
-    }
+// const ob1 ={ name:"Rithik",
+//     greet(){
+//         console.log("Hello from",this.name)
+//     }
+// }
+// const ob2 = {name:"Sanjay",
+//     greet:ob1.greet
+// }
+// ob1.greet();
+// ob2.greet();
+
+
+function cake(name,flavour)
+{
+    this.name= name;
+    this.flavour=flavour;
 }
-const ob2 = {name:"Sanjay",
-    greet:ob1.greet
-}
-ob1.greet();
-ob2.greet();
- 
+const cake1= new cake("pastry","red velvet")
+const cake2 = new cake("sponge cake","chocolate")
+console.log(cake1)
+console.log(cake2)
 
