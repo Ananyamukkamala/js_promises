@@ -1,17 +1,19 @@
-// const student ={
-//     name:"Rithik",
-//     introduce :function (){
-//         console.log(this);
-//         console.log("Hi I am ", this.name)
-//     }
-// }
-// //Method Borrowing
-// student.introduce();
-//  const teacher = {
-//     name:"Ayush",
-//     introduce: student.introduce
-//  }
-//  teacher.introduce();
+const student ={
+    name:"Rithik",
+    introduce :function (){
+        console.log(this);
+        console.log("Hi I am ", this.name)
+    }
+}
+//Method Borrowing
+student.introduce();
+ const teacher = {
+    name:"Ayush",
+    introduce: student.introduce
+ }
+ teacher.introduce();
+
+console.log(student.introduce===teacher.introduce)
 
 //  const car ={
 //     name:"Audi",
@@ -78,13 +80,13 @@
 // ob2.greet();
 
 
-function cake(name,flavour)
-{
-    this.name= name;
-    this.flavour=flavour;
-}
-const cake1= new cake("pastry","red velvet")
-const cake2 = new cake("sponge cake","chocolate")
-console.log(cake1)
-console.log(cake2)
+// function cake(name,flavour)
+// {
+//     this.name= name;
+//     this.flavour=flavour;
+// }
+// const cake1= new cake("pastry","red velvet")
+// const cake2 = new cake("sponge cake","chocolate")
+// console.log(cake1)
+// console.log(cake2)
 
